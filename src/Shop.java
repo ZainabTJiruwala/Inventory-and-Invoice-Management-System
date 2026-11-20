@@ -17,4 +17,10 @@ public class Shop {
         }
         return p;
     }
+
+    public void restock(int id, int q) throws ProductNotFoundException {
+        Product p = find(id);
+        p.addQty(q);
+        System.out.println("Done!");
+    }
 }
