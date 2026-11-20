@@ -23,4 +23,25 @@ public class Shop {
         p.addQty(q);
         System.out.println("Done!");
     }
+
+    // DSA: bubble sort by quantity
+    public void showAll() {
+        ArrayList<Product> list = new ArrayList<Product>(stock.values());
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = 0; j < list.size() - 1 - i; j++) {
+                if (list.get(j).getQty() > list.get(j + 1).getQty()) {
+                    Product t = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, t);
+                }
+            }
+        }
+
+        System.out.println("\n--- Products List ---");
+        for (int i = 0; i < list.size(); i++) {
+            Item itm = list.get(i);
+            itm.show();
+        }
+    }
 }
