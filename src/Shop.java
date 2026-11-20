@@ -20,12 +20,6 @@ public class Shop {
         return p;
     }
 
-    public void restock(int id, int q) throws ProductNotFoundException {
-        Product p = find(id);
-        p.addQty(q);
-        System.out.println("Done!");
-    }
-
     // DSA: bubble sort by quantity
     public void showAll() {
         ArrayList<Product> list = new ArrayList<Product>(stock.values());
@@ -46,16 +40,6 @@ public class Shop {
             // polymorphism
             Item itm = list.get(i);
             itm.show();
-        }
-    }
-
-    // low stock alert
-    public void lowStock() {
-        System.out.println("\n--- Low Stock Alerts ---");
-        for (Product p : stock.values()) {
-            if (p.getQty() <= p.getMin()) {
-                System.out.println("ALERT: " + p.getName() + " only " + p.getQty() + " left!");
-            }
         }
     }
 

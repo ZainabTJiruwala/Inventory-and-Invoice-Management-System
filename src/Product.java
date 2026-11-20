@@ -2,21 +2,19 @@
 public class Product extends Item {
     private double prce;
     private int qty;
-    private int min;
 
-    public Product(int id, String name, double prce, int qty, int min) {
+    public Product(int id, String name, double prce, int qty) {
         super(id, name);
         this.prce = prce;
         this.qty = qty;
-        this.min = min;
     }
 
-    public double getPrice() { return prce; }
-    public int getQty() { return qty; }
-    public int getMin() { return min; }
+    public double getPrice() {
+        return prce;
+    }
 
-    public void addQty(int n) {
-        qty = qty + n;
+    public int getQty() {
+        return qty;
     }
 
     public void takeQty(int n) throws OutOfStockException {
@@ -25,7 +23,8 @@ public class Product extends Item {
         }
         qty = qty - n;
     }
-     //overrides show from item
+
+    // polymorphism
     public void show() {
         System.out.println(getId() + ". " + getName() + " - Rs." + prce + " (qty: " + qty + ")");
     }
