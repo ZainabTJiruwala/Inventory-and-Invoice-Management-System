@@ -44,7 +44,6 @@ public class Shop {
         }
     }
 
-    // low stock alert
     public void lowStock() {
         System.out.println("\n--- Low Stock Alerts ---");
         for (Product p : stock.values()) {
@@ -52,5 +51,21 @@ public class Shop {
                 System.out.println("ALERT: " + p.getName() + " only " + p.getQty() + " left!");
             }
         }
+    }
+
+    public Invoice newBill(String cust) {
+        Invoice inv = new Invoice(bnum, cust);
+        bnum = bnum + 1;
+        return inv;
+    }
+
+    public void sell(Invoice inv, int id, int q) throws ProductNotFoundException, OutOfStockException {
+        Product p = find(id);
+        p.takeQty(q);
+        inv.addItem(p, q);
+    }
+
+    public void save(Invoice inv) {
+        bills.add(inv);
     }
 }
