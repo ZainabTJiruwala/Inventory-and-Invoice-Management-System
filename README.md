@@ -6,4 +6,3 @@ Features:
 - stock mangement
 - low stock alerts
 - invoice generation
-- sales reports

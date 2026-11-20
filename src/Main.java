@@ -13,8 +13,8 @@ public class Main {
 
         int ch = 0;
 
-        while (ch != 7) {
-            System.out.println("\n1.Show Stock 2.Add Item 3.Restock 4.Low Stock 5.Bill 6.Report 7.Exit");
+        while (ch != 6) {
+            System.out.println("\n1.Show Stock 2.Add Item 3.Restock 4.Low Stock 5.Bill 6.Exit");
             System.out.print("Enter choice: ");
             ch = sc.nextInt();
 
@@ -66,11 +66,8 @@ public class Main {
                     }
 
                     if (inv.getCount() > 0) {
-                        s.save(inv);
                         inv.print();
                     }
-                } else if (ch == 6) {
-                    s.report();
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());

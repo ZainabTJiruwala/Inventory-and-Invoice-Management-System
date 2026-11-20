@@ -5,8 +5,6 @@ import java.util.HashMap;
 public class Shop {
     // collection: hashmap to store products
     private HashMap<Integer, Product> stock = new HashMap<Integer, Product>();
-    // collection: arraylist to store bills
-    private ArrayList<Invoice> bills = new ArrayList<Invoice>();
     private int bnum = 1;
 
     public void add(Product p) {
@@ -71,20 +69,5 @@ public class Shop {
         Product p = find(id);
         p.takeQty(q);
         inv.addItem(p, q);
-    }
-
-    public void save(Invoice inv) {
-        bills.add(inv);
-    }
-
-    // sales report
-    public void report() {
-        double total = 0;
-        for (int i = 0; i < bills.size(); i++) {
-            total = total + bills.get(i).getTotal();
-        }
-        System.out.println("\n--- Sales Report ---");
-        System.out.println("Total Bills: " + bills.size());
-        System.out.println("Total Money: Rs." + total);
     }
 }

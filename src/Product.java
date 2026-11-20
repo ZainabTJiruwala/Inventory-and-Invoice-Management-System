@@ -25,7 +25,7 @@ public class Product extends Item {
         }
         qty = qty - n;
     }
-
+     //overrides show from item
     public void show() {
         System.out.println(getId() + ". " + getName() + " - Rs." + prce + " (qty: " + qty + ")");
     }
